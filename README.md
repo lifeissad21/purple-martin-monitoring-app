@@ -1,97 +1,108 @@
-# Purple Martins Monitoring App
+# Purple Martin Watchers
 
-## Introduction
+[![Deploy to GitHub Pages](https://github.com/lifeissad21/purple-martin-monitoring-app/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/lifeissad21/purple-martin-monitoring-app/actions/workflows/deploy-pages.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-17352d.svg)](LICENSE)
 
-Welcome to the Purple Martins Monitoring App repository! This application is designed to facilitate the logging of information related to Purple Martins by users and streamline the process of monitoring and data collection for administrators. The app aims to support conservation efforts by making it easier to track and manage data on Purple Martin populations.
+A polished, privacy-friendly field journal for tracking Purple Martin colonies,
+nest checks, seasonal activity, and site maintenance. This project completes
+and modernizes the original Purple Martins Monitoring App prototype.
 
-## Features
+**[Open the live app](https://lifeissad21.github.io/purple-martin-monitoring-app/)**
+ · [Source code](https://github.com/lifeissad21/purple-martin-monitoring-app)
+ · [Report an issue](https://github.com/lifeissad21/purple-martin-monitoring-app/issues)
 
-- **User Accounts:** Users can create accounts and log in to access the app's features.
-- **Data Logging:** Users can log various types of information, including sightings, nest status, and other relevant data.
-- **Admin Dashboard:** Administrators have access to a dashboard where they can view, manage, and analyze the data submitted by users and create forms for data collection.
-- **Reports:** Generate reports to summarize data for specific periods or regions.
+## What it does
 
-## Installation
+Purple Martin Watchers gives volunteer landlords and conservation teams one
+place to record and review a breeding season:
 
-To run this app locally, follow these steps:
+- Track multiple colonies, locations, housing capacity, occupancy, and status.
+- Log arrivals, routine visits, nest checks, fledging events, and maintenance.
+- Record adult, egg, nestling, and fledgling counts with weather and field notes.
+- Review activity in a chronological journal and monthly calendar.
+- Compare occupancy and current nest stages across sites.
+- Export observation records as CSV for archival or further analysis.
+- Configure observer details, season timing, units, and reminder preferences.
+- Use a responsive interface designed for desktop and field use.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Anarchist1984/GSMSTPurpleMartin
-   cd GSMSTPurpleMartin
-   ```
+The app includes realistic sample data so every workflow can be explored
+immediately. Data changes persist in the current browser through `localStorage`;
+no account or backend is required.
 
-2. **Install dependencies:**
-   Ensure you have Node.js and npm installed. Then run:
-   ```bash
-   npm install
-   ```
+## Privacy and data storage
 
-3. **Set up the Firebase configuration:**
-   Create a `.env` file in the root directory of your project and add the following environment variables:
-   ```plaintext
-   REACT_APP_FIREBASE_API_KEY=your-api-key
-   REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
-   REACT_APP_FIREBASE_PROJECT_ID=your-project-id
-   REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
-   REACT_APP_FIREBASE_APP_ID=your-app-id
-   REACT_APP_FIREBASE_MEASUREMENT_ID=your-measurement-id
-   ```
+Monitoring records are stored only in the browser under the
+`purple-martin-watchers-data-v1` key. They are not transmitted to this
+repository, GitHub Pages, or a third-party database. Clearing site data removes
+the records. Use **Reports → Export CSV** to keep a portable copy.
 
-4. **Start the application:**
-   ```bash
-   npm run dev
-   ```
+The sign-in screen also supports optional Google authentication through
+Firebase. Authentication is independent of the local monitoring dataset and is
+not required for the hosted demo.
 
-5. **Access the application:**
-   Open your browser and go to `http://localhost:3000`.
+## Technology
 
-## Usage
+- [Next.js](https://nextjs.org/) App Router with static export
+- [React](https://react.dev/) and TypeScript
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide](https://lucide.dev/) icons
+- Optional [Firebase Authentication](https://firebase.google.com/docs/auth)
+- [Bun](https://bun.sh/) for dependency management and scripts
+- GitHub Actions and GitHub Pages for continuous deployment
 
-### User Guide
+## Local development
 
-1. **Sign Up / Login:**
-   Create a new account or log in with your existing credentials.
+Requirements: [Bun](https://bun.sh/docs/installation) 1.3 or newer.
 
-2. **Follow the structured walkthrough:**
-   For a more detailed guide, visit: [User Walkthrough](https://guidejar.com/guides/a91b5d23-bea5-4dc7-9730-17acdd9f60f1)
+```bash
+git clone https://github.com/lifeissad21/purple-martin-monitoring-app.git
+cd purple-martin-monitoring-app
+bun install
+bun run dev
+```
 
-### Admin Guide / Team Leader
+Open the URL printed by Next.js. Development mode opens the dashboard directly;
+the sign-in experience remains available at `/login`.
 
-1. **Admin Dashboard:**
-   Access the admin or team leader dashboard to view all user-submitted data.
+### Quality checks
 
-2. **Admin Tasks:**
-   Administrators can filter, sort, and export data for further analysis.
+```bash
+bun run lint
+bun run build
+```
 
-3. **Team Leader Tasks:**
-   Team leaders can only manage data for the team they are assigned to.
+The production build writes the static site to `out/`.
 
-4. **Admin Walkthrough:**
-   For a detailed guide, visit: [Admin Walkthrough](https://guidejar.com/guides/9c9adb58-0d9b-49b3-abcf-8d6308a22557)
+## Optional Firebase sign-in
+
+1. Copy `.env.example` to `.env.local`.
+2. Add the `NEXT_PUBLIC_FIREBASE_*` values from a Firebase web app.
+3. Enable Google in **Firebase Console → Authentication → Sign-in method**.
+4. Add local and deployed domains to Firebase's authorized domains.
+
+Without those variables, the app automatically offers local mode.
+
+## Deployment
+
+Every push to `main` runs [the Pages workflow](.github/workflows/deploy-pages.yml),
+builds a repository-prefixed static export, and publishes it to GitHub Pages.
+No secrets are required for the default local-storage version.
+
+## Conservation resources
+
+- [Purple Martin Conservation Association](https://www.purplemartin.org/)
+- [PMCA Scout-Arrival Study](https://www.purplemartin.org/research/8/scout-arrival-study/)
+- [Cornell Lab: Purple Martin species account](https://www.allaboutbirds.org/guide/Purple_Martin/overview)
+- [eBird](https://ebird.org/home) for broader bird observation reporting
+
+This community project is not affiliated with or endorsed by those organizations.
 
 ## Contributing
 
-We welcome contributions to the Purple Martins Monitoring App! To contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes and commit them (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a pull request.
+Bug reports and focused improvements are welcome through
+[GitHub Issues](https://github.com/lifeissad21/purple-martin-monitoring-app/issues).
+Please run lint and the production build before opening a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- Special thanks to all the contributors (Valentina Munoz-Baccadre and Pritika Yadav) who have helped in developing this application.
-- Thanks to the Purple Martin Conservation Association for their ongoing efforts in conserving Purple Martins.
-
----
-
-If you have any questions or need further assistance, please feel free to open an issue in this repository.
-
-Happy Logging!
+Released under the [MIT License](LICENSE).

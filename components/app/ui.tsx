@@ -1,0 +1,7 @@
+import type { ReactNode } from "react"
+import { cn } from "@/lib/utils"
+
+export function Card({ children, className }: { children: ReactNode; className?: string }) { return <div className={cn("rounded-2xl border border-black/7 bg-white shadow-[0_1px_2px_rgba(0,0,0,.03)]", className)}>{children}</div> }
+export function Badge({ children, tone = "neutral" }: { children: ReactNode; tone?: "green" | "amber" | "blue" | "neutral" }) { const tones = { green: "bg-emerald-50 text-emerald-700 ring-emerald-600/15", amber: "bg-amber-50 text-amber-700 ring-amber-600/15", blue: "bg-sky-50 text-sky-700 ring-sky-600/15", neutral: "bg-slate-100 text-slate-600 ring-slate-500/10" }; return <span className={cn("inline-flex rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset", tones[tone])}>{children}</span> }
+export function EmptyState({ icon, title, description, action }: { icon: ReactNode; title: string; description: string; action?: ReactNode }) { return <Card className="flex flex-col items-center px-6 py-14 text-center"><div className="mb-4 flex size-12 items-center justify-center rounded-full bg-[#edf2e5] text-[#38614f]">{icon}</div><h3 className="font-semibold">{title}</h3><p className="text-muted-foreground mt-1 max-w-sm text-sm">{description}</p>{action && <div className="mt-5">{action}</div>}</Card> }
+export const fieldClass = "mt-1.5 h-10 w-full rounded-lg border border-input bg-white px-3 text-sm outline-none focus:border-[#527a66] focus:ring-2 focus:ring-[#527a66]/15"

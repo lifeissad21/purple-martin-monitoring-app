@@ -1,28 +1,24 @@
-import Link from "next/link";
+"use client"
 
-export default function Home(){
-  return(
-    <div className="flex justify-center items-center h-screen">
-      <div className="m-4">
-        <Link href="/accounts/admin/dashboard">
-          <div className="block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Admin Role</div>
-        </Link>
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { Bird } from "lucide-react"
+
+export default function HomePage() {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.replace(process.env.NODE_ENV === "development" ? "/dashboard" : "/login")
+  }, [router])
+
+  return (
+    <main className="flex min-h-svh items-center justify-center bg-[#f5f6f1]">
+      <div className="text-center">
+        <div className="mx-auto flex size-12 items-center justify-center rounded-xl bg-[#17352d] text-white">
+          <Bird className="size-6" />
+        </div>
+        <p className="mt-4 text-sm font-medium text-[#38614f]">Opening Purple Martin Watchers…</p>
       </div>
-      <div className="m-4">
-        <Link href="/accounts/team-leader/dashboard">
-          <div className="block px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">Team Leader Role</div>
-        </Link>
-      </div>
-      <div className="m-4">
-        <Link href="/accounts/user/dashboard">
-          <div className="block px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">User Role</div>
-        </Link>
-      </div>
-      <div className="m-4">
-        <Link href="/accounts/signin">
-          <div className="block px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">Sign In</div>
-        </Link>
-      </div>
-    </div>
+    </main>
   )
 }
