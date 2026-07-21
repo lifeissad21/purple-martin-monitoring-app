@@ -2,6 +2,7 @@
   "name": "purple_martin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lifeissad21.github.io/purple-martin-monitoring-app/dashboard/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

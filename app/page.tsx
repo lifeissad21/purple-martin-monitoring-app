@@ -8,7 +8,7 @@ export default function HomePage() {
   const router = useRouter()
 
   useEffect(() => {
-    router.replace(process.env.NODE_ENV === "development" ? "/dashboard" : "/login")
+    router.replace("/dashboard")
   }, [router])
 
   return (

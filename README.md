@@ -7,7 +7,7 @@ A polished, privacy-friendly field journal for tracking Purple Martin colonies,
 nest checks, seasonal activity, and site maintenance. This project completes
 and modernizes the original Purple Martins Monitoring App prototype.
 
-**[Open the live app](https://lifeissad21.github.io/purple-martin-monitoring-app/)**
+**[Open the live app](https://lifeissad21.github.io/purple-martin-monitoring-app/dashboard/)**
  · [Source code](https://github.com/lifeissad21/purple-martin-monitoring-app)
  · [Report an issue](https://github.com/lifeissad21/purple-martin-monitoring-app/issues)
 
