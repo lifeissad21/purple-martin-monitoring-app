@@ -24,7 +24,7 @@ export default function LoginPage() {
       </div>
       <div className="bg-muted relative hidden lg:block">
         <Image
-          src="/PurpleMartin.jpg"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/PurpleMartin.jpg`}
           alt="Purple martin perched on a branch"
           fill
           className="object-cover dark:brightness-[0.2] dark:grayscale"
